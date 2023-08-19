@@ -1,31 +1,19 @@
 let cronos = ()=>{
     localStorage.setItem("time", 0)
-    let level = 1
-    let distance = 800
-    let location = "./index2.html"; 
-    if (level == 2){
-        distance = 200
-    }else if(level == 200){
-        distance = 200;
-        location = "./index3.html"; 
-    }
     setInterval(()=>{
         let timeLocal = parseInt(localStorage.getItem("time")) + 1;
+        localStorage.setItem("time", 0);
         localStorage.setItem("time", timeLocal);
         let timer = document.querySelector(".timer");
         timer.innerText = `${timeLocal}`;
 
-        if(timeLocal >= distance){
-            window.location.href = location;
-            level = level + 1;
+        if(timeLocal >= 200){
+            window.alert("Você venceu o jogo");
         };
 
     },50)
 }
- let stopCronos = ()=>{
-    let timer = document.querySelector(".timer");
-    timer.classList.remove("timer")
- }
+
 
 
 cronos();
@@ -69,7 +57,7 @@ const loop = setInterval(() => {
         mario.style.marginLeft = '50px'
 
         clearInterval(loop);
-        stopCronos()
+
     }
 }, 10);
 
